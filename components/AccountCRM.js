@@ -26,7 +26,7 @@ export default function AccountCRM(){
       <div className="grid2"><div className="field"><label>Manager / Decision Maker</label><input value={form.manager_name} onChange={e=>setForm({...form,manager_name:e.target.value})}/></div><div className="field"><label>Phone</label><input value={form.phone} onChange={e=>setForm({...form,phone:e.target.value})}/></div></div>
       <div className="grid2"><div className="field"><label>Email</label><input value={form.email} onChange={e=>setForm({...form,email:e.target.value})}/></div><div className="field"><label>Units</label><input type="number" value={form.units} onChange={e=>setForm({...form,units:e.target.value})}/></div></div>
       <div className="grid2"><div className="field"><label>Sales Stage</label><select value={form.stage} onChange={e=>setForm({...form,stage:e.target.value})}>{STAGES.map(s=><option key={s}>{s}</option>)}</select></div><div className="field"><label>Account Owner</label><input value={form.account_owner} onChange={e=>setForm({...form,account_owner:e.target.value})}/></div></div>
-      <div className="notice">A unique RESTOTECH Client Number will be generated automatically when this account is created.</div><button className="primaryBtn">Create Account</button></form>
+      <div className="notice">A unique DKI Restotech Client Number will be generated automatically when this account is created.</div><button className="primaryBtn">Create Account</button></form>
     </div></div>}
   </>;
 }

@@ -77,7 +77,7 @@ export default function EmergencyRequest({open,onClose,prefill={},source='public
           <button className="choiceCard" onClick={()=>setStep('existing')}>
             <span className="choiceIcon">#</span>
             <strong>I HAVE A CLIENT NUMBER</strong>
-            <small>Open your RESTOTECH client account and request service.</small>
+            <small>Open your DKI Restotech client account and request service.</small>
           </button>
           <button className="choiceCard newClientChoice" onClick={()=>setStep('request')}>
             <span className="choiceIcon">+</span>
@@ -89,9 +89,9 @@ export default function EmergencyRequest({open,onClose,prefill={},source='public
 
       {step==='existing' && <form className="form" onSubmit={findClient}>
         <button type="button" className="backLink" onClick={()=>setStep('choice')}>← Back</button>
-        <div className="notice">Enter the RESTOTECH Client Number assigned to your property-management account.</div>
+        <div className="notice">Enter the DKI Restotech Client Number assigned to your property-management account.</div>
         <div className="field">
-          <label>RESTOTECH Client Number *</label>
+          <label>DKI Restotech Client Number *</label>
           <input required autoFocus value={clientNumber} onChange={e=>setClientNumber(e.target.value.toUpperCase())} placeholder="RT-XXXXXXXX" />
         </div>
         <button className="primaryBtn bigAction" disabled={lookupState==='loading'}>
@@ -133,7 +133,7 @@ export default function EmergencyRequest({open,onClose,prefill={},source='public
 
       {state==='sent' && created && <div className="success requestSuccess">
         <div className="successMark">✓</div>
-        <h3>RESTOTECH has received your request.</h3>
+        <h3>DKI Restotech has received your request.</h3>
         <p>Your live service-status page is ready. Keep this link so you can follow RESTOTECH updates without calling for status.</p>
         <a className="primaryBtn bigAction" href={'/status/'+created.public_token}>OPEN LIVE SERVICE STATUS →</a>
         <div className="statusLinkBox">

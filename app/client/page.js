@@ -30,10 +30,10 @@ export default function Client(){
    <AppNav area="CLIENT"/>
    <section className="clientAccess card">
      <div className="eyebrow">PROPERTY MANAGEMENT CLIENT ACCESS</div>
-     <h1 className="accessTitle">Your RESTOTECH account.</h1>
+     <h1 className="accessTitle">Your DKI Restotech account.</h1>
      <p>Enter the Client Number assigned by RESTOTECH to access your property and request emergency service.</p>
      <form className="form accessForm" onSubmit={submitLookup}>
-       <div className="field"><label>RESTOTECH Client Number</label><input required value={clientNumber} onChange={e=>setClientNumber(e.target.value.toUpperCase())} placeholder="RT-XXXXXXXX"/></div>
+       <div className="field"><label>DKI Restotech Client Number</label><input required value={clientNumber} onChange={e=>setClientNumber(e.target.value.toUpperCase())} placeholder="RT-XXXXXXXX"/></div>
        <button className="primaryBtn bigAction">{loading?'OPENING ACCOUNT…':'OPEN CLIENT ACCOUNT →'}</button>
        {error&&<div className="errorBox">{error}</div>}
      </form>
@@ -44,7 +44,7 @@ export default function Client(){
    <AppNav area="CLIENT"/>
    <div className="clientHero">
      <div>
-       <div className="eyebrow">RESTOTECH CLIENT #{account.client_number}</div>
+       <div className="eyebrow">DKI RESTOTECH CLIENT #{account.client_number}</div>
        <h2>{account.name}</h2>
        <p>{account.property_name||'Property Management Account'}{account.address?<><br/>{account.address}</>:null}</p>
      </div>
@@ -61,7 +61,7 @@ export default function Client(){
      <div className="card">
        <div className="eyebrow">EMERGENCY RESPONSE</div>
        <h3>One account. Faster requests.</h3>
-       <p>Requests submitted here are automatically attached to your RESTOTECH client account so our team immediately knows who is calling.</p>
+       <p>Requests submitted here are automatically attached to your DKI Restotech client account so our team immediately knows who is calling.</p>
        <button className="secondaryBtn" onClick={()=>setOpen(true)}>Request Service</button>
      </div>
    </section>

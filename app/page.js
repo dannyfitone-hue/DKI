@@ -1,37 +1,70 @@
 'use client';
 import {useState} from 'react';
 import EmergencyRequest from '../components/EmergencyRequest';
-import AppNav from '../components/AppNav';
 
 export default function Home(){
-  const[open,setOpen]=useState(false);
-  return <main className="shell">
-    <AppNav/>
-    <section className="hero">
-      <div className="heroCopy">
-        <div className="eyebrow">24/7 PROPERTY RESTORATION RESPONSE</div>
-        <h1>Property damage.<br/><span>One tap away.</span></h1>
-        <p className="lead">Request emergency restoration service in seconds. RESTOTECH receives the request immediately so the response team can move quickly.</p>
-        <button className="emergencyBtn" onClick={()=>setOpen(true)}>🚨 REQUEST EMERGENCY SERVICE</button>
-        <div className="micro">Existing clients use their RESTOTECH Client Number • New clients can request service with only phone + property address</div>
-      </div>
-      <div className="commandPreview card">
-        <div className="eyebrow">RESTOTECH RESPONSE SYSTEM</div>
-        <h2>Fast request. Clear communication.</h2>
-        <div className="responseSteps">
-          <div><b>1</b><span><strong>Request received</strong><small>RESTOTECH is notified immediately.</small></span></div>
-          <div><b>2</b><span><strong>Response coordinated</strong><small>The service team accepts and manages the call.</small></span></div>
-          <div><b>3</b><span><strong>Status stays visible</strong><small>Registered clients can follow approved job updates from their portal.</small></span></div>
-        </div>
-      </div>
-    </section>
-    <section className="valueGrid topspace">
-      <div><span>01</span><h3>Request in seconds</h3><p>Existing clients enter their Client Number and go directly into their account. New clients can request with only a phone number and property address.</p></div>
-      <div><span>02</span><h3>RESTOTECH gets alerted</h3><p>Every request enters the operations queue so the service team can accept it and begin response.</p></div>
-      <div><span>03</span><h3>Follow the work</h3><p>Every new emergency request receives a private live-status link where the client can follow RESTOTECH updates in real time.</p></div>
-    </section>
-    <section className="cta card topspace"><div><div className="eyebrow">PROPERTY MANAGEMENT PARTNERS</div><h2>RESTOTECH Client Portal</h2><p>Registered property-management partners receive a dedicated dashboard for emergency requests, properties and active service status.</p></div><a href="/client" className="primaryBtn">Client Portal →</a></section>
-    <button className="emergencyBtn stickyEmergency" onClick={()=>setOpen(true)}>🚨 EMERGENCY SERVICE</button>
-    <EmergencyRequest open={open} onClose={()=>setOpen(false)}/>
-  </main>
+ const[open,setOpen]=useState(false);
+ return <main>
+   <header className="publicHeader">
+     <div className="publicNav">
+       <div className="dkiBrand"><span className="dki">DKI</span><span className="dot">·</span><span className="resto">RESTOTECH</span><small>PROPERTY MANAGEMENT RESPONSE</small></div>
+       <div className="headerActions">
+         <a className="phoneLink" href="tel:9497968533">24/7 Emergency&nbsp; 949-796-8533</a>
+         <a className="portalLink" href="/client">Client Portal</a>
+       </div>
+     </div>
+   </header>
+
+   <section className="brandHero">
+     <div className="brandHeroInner">
+       <div className="heroCopy">
+         <div className="eyebrow">24/7 PROPERTY DAMAGE RESPONSE • LA & ORANGE COUNTY</div>
+         <h1>One call.<br/>One team.<br/><em>Full recovery.</em></h1>
+         <p>Fast restoration response for property-management teams — from emergency mitigation and documentation through drying, cleanup and full reconstruction.</p>
+         <div className="heroButtons">
+           <button className="emergencyBtn heroEmergency" onClick={()=>setOpen(true)}>REQUEST EMERGENCY SERVICE</button>
+           <a className="outlineAction" href="/client">ACCESS CLIENT PORTAL</a>
+         </div>
+         <div className="trustRow"><span>IICRC-Certified</span><span>Family-Owned Since 1980</span><span>Licensed & Insured</span><span>24/7/365</span></div>
+       </div>
+       <aside className="responsePanel">
+         <span className="responseNumber">60</span><strong>MIN</strong>
+         <h3>Typical on-site response</h3>
+         <p>Local crews serving Los Angeles and Orange County when minutes matter.</p>
+         <div className="responseDivider"></div>
+         <b>Already a DKI Restotech client?</b>
+         <p>Use your Client Number to identify your account and request service faster.</p>
+         <button className="secondaryBtn" onClick={()=>setOpen(true)}>REQUEST SERVICE →</button>
+       </aside>
+     </div>
+   </section>
+
+   <section className="publicContent">
+     <div className="sectionIntro">
+       <div className="eyebrow">BUILT FOR PROPERTY MANAGEMENT</div>
+       <h2>Emergency response without the status-chasing.</h2>
+       <p>Request service in seconds, then follow the job from dispatch through completion from one live status experience.</p>
+     </div>
+     <div className="featureGrid">
+       <article><span>01</span><h3>Request</h3><p>Existing clients identify their account with a Client Number. New clients only need a phone number and property address.</p></article>
+       <article><span>02</span><h3>Dispatch</h3><p>Your request reaches the DKI Restotech response team and becomes visible in the operations dashboard immediately.</p></article>
+       <article><span>03</span><h3>Track</h3><p>Follow client-visible milestones and service updates through your private live-status page.</p></article>
+       <article><span>04</span><h3>Recover</h3><p>One certified team can carry the loss from mitigation and documentation through restoration and reconstruction.</p></article>
+     </div>
+   </section>
+
+   <section className="serviceBand">
+     <div><small>FULL-SERVICE RESTORATION</small><h2>From first call to final rebuild.</h2></div>
+     <div className="serviceChips"><span>Water Damage</span><span>Fire & Smoke</span><span>Mold Remediation</span><span>Structural Damage</span><span>Reconstruction</span><span>Commercial Restoration</span></div>
+   </section>
+
+   <footer className="publicFooter">
+     <div className="dkiBrand"><span className="dki">DKI</span><span className="dot">·</span><span className="resto">RESTOTECH</span><small>RESTORATION</small></div>
+     <p>Family-owned restoration and reconstruction serving Southern California since 1980.</p>
+     <div><a href="tel:9497968533">949-796-8533</a> <span>•</span> <a href="https://dkirestotech.com">dkirestotech.com</a></div>
+   </footer>
+
+   <button className="emergencyBtn stickyEmergency" onClick={()=>setOpen(true)}>REQUEST EMERGENCY SERVICE</button>
+   <EmergencyRequest open={open} onClose={()=>setOpen(false)}/>
+ </main>
 }

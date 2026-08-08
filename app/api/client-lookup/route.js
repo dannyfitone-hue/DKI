@@ -6,7 +6,7 @@ export async function GET(req){
     const clientNumber=url.searchParams.get('client_number');
     if(!clientNumber)return Response.json({error:'Client number is required.'},{status:400});
     const account=await findAccountByClientNumber(clientNumber);
-    if(!account)return Response.json({error:'We could not find that RESTOTECH Client Number.'},{status:404});
+    if(!account)return Response.json({error:'We could not find that DKI Restotech Client Number.'},{status:404});
     return Response.json({
       id:account.id,
       client_number:account.client_number,

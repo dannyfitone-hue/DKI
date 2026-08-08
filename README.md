@@ -1,4 +1,4 @@
-# RESTOTECH Command — Clean Operations Starter
+# DKI Restotech Response — Clean Operations Starter
 
 A mobile-first property-management restoration response platform built with Next.js for GitHub + Vercel and prepared for Supabase.
 
@@ -38,7 +38,7 @@ The internal RESTOTECH admin, sales and service workflows can be tested after Su
 
 ## Emergency Access Flow (V3)
 - Main Emergency button asks: Existing Client Number or New Client.
-- Existing clients enter their RESTOTECH Client Number and open their identified client account.
+- Existing clients enter their DKI Restotech Client Number and open their identified client account.
 - New clients submit only property address + phone number (unit/note optional).
 - Every new emergency receives a private `/status/<token>` live-status link.
 - Admin and Service dashboards update the emergency status and can post client-visible updates.
@@ -47,3 +47,7 @@ The internal RESTOTECH admin, sales and service workflows can be tested after Su
 ## Supabase update
 If this project already has the older RESTOTECH tables, run `supabase/migrate_v3.sql`.
 For a fresh Supabase project, run `supabase/schema.sql`.
+
+
+## DKI Restotech brand alignment
+Public presentation now uses DKI Restotech naming and business context: 24/7 emergency restoration, typical 60-minute on-site response, family-owned since 1980, licensed/insured, IICRC-certified, and full-service mitigation through reconstruction. Replace the text lockup with the official supplied logo asset when available.

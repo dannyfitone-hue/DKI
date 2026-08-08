@@ -1,0 +1,1 @@
+import {addJobUpdate} from '../../../../../lib/store';export async function POST(req,{params}){try{const body=await req.json();if(!body.message)return Response.json({error:'Update message required.'},{status:400});return Response.json(await addJobUpdate(params.id,body),{status:201})}catch(e){return Response.json({error:e.message},{status:500})}}

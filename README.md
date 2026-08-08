@@ -1,26 +1,41 @@
-# RESTOTECH Command
+# RESTOTECH Command — V2
+A mobile-first property management restoration response platform built with Next.js for GitHub + Vercel and prepared for Supabase.
 
-Mobile-first restoration emergency request and operations MVP for Vercel + GitHub.
+## V2 modules
+- Public no-login emergency request: only property address + phone required
+- Registered property manager portal with fast emergency request
+- RESTOTECH Admin operations dashboard
+- Service Team Manager dashboard
+- Sales CRM for property-management accounts
+- Account owner attribution and sales-stage tracking
+- Damage amount + damage description on each call
+- Client-visible vs RESTOTECH-internal service updates
+- Live status timeline with 5-second refresh
+- Supabase schema for accounts, properties, emergencies, updates and account activity
 
-## Included
-- Public no-login emergency request
-- Existing-client quick emergency request
-- Admin live emergency dashboard
-- Service-manager portal with shared status updates
-- Supabase-ready schema for accounts, properties, emergencies, and job updates
-- Local demo fallback when Supabase is not configured
+## Run locally
+```bash
+npm install
+npm run dev
+```
 
-## Deploy
-1. Push this folder to GitHub.
-2. Create a Supabase project.
-3. Run `supabase/schema.sql` in Supabase SQL Editor.
-4. Add `.env.example` values to Vercel Environment Variables.
-5. Import the GitHub repo into Vercel and deploy.
+## Deploy to Vercel
+1. Upload/push this folder to a new GitHub repository.
+2. In Supabase, create a project and run `supabase/schema.sql` in SQL Editor.
+3. In Supabase project settings, copy Project URL and service-role key.
+4. In Vercel Project Settings → Environment Variables add:
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `SUPABASE_SERVICE_ROLE_KEY`
+5. Import the GitHub repository into Vercel and deploy.
 
-## Demo URLs
-- `/` public emergency request
-- `/client` property-management portal
-- `/admin` RESTOTECH admin
-- `/service` service-team manager
+Without those environment variables the app runs in demo-memory mode, so you can inspect the design and workflow first.
 
-This first MVP leaves role pages open for workflow testing. Add authentication and RLS before real customer data.
+## Demo routes
+- `/` public site + emergency button
+- `/client` property manager portal
+- `/admin` owner/admin dashboard
+- `/service` service team manager
+- `/sales` sales CRM
+
+## Before production
+Add Supabase Auth + role-based permissions, RLS, real SMS/push notifications, technician assignment, file uploads, audit history, and client-property scoping. Never expose the service-role key to browser code.

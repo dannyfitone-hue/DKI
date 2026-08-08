@@ -1,20 +1,8 @@
-import { getEmergencyByToken } from '../../../../lib/store';
-
+import {getEmergencyByToken} from '../../../../lib/store';
 export async function GET(req,{params}){
-  try{
-    const job=await getEmergencyByToken(params.token);
-    if(!job)return Response.json({error:'Status link not found.'},{status:404});
-    return Response.json({
-      id:job.id,
-      address:job.address,
-      unit:job.unit,
-      status:job.status,
-      account_name:job.account_name,
-      created_at:job.created_at,
-      updated_at:job.updated_at,
-      updates:(job.updates||[]).filter(u=>u.visible_to_client)
-    });
-  }catch(e){
-    return Response.json({error:e.message},{status:500})
-  }
+ try{
+  const j=await getEmergencyByToken(params.token);
+  if(!j)return Response.json({error:'Status link not found.'},{status:404});
+  return Response.json({id:j.id,address:j.address,unit:j.unit,status:j.status,request_type:j.request_type,assigned_team_name:j.assigned_team_name,created_at:j.created_at,updated_at:j.updated_at,updates:(j.updates||[]).filter(u=>u.visible_to_client)});
+ }catch(e){return Response.json({error:e.message},{status:500})}
 }

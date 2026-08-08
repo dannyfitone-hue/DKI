@@ -1,57 +1,44 @@
-# DKI Restotech Response — Clean Operations Starter
+# DKI Restotech Property Management Response Platform — V6
 
-A mobile-first property-management restoration response platform built with Next.js for GitHub + Vercel and prepared for Supabase.
+This build is organized around one shared live Client/Job File and three controlled dashboards.
 
-## Included
-- Public no-login emergency request with only property address + phone required
-- Clean RESTOTECH Admin operations dashboard
-- Service Team Manager dashboard
-- Sales CRM for property-management accounts
-- Account-owner attribution and sales-stage tracking
-- Damage amount + damage description on each call
-- Client-visible vs RESTOTECH-internal service updates
-- Live status timeline with 5-second refresh
-- Supabase schema for accounts, properties, emergencies, updates and account activity
-- No sample accounts, fake emergencies, example revenue or test activity
+## Final workflow
+1. Property manager submits an emergency or non-emergency request.
+2. A Client/Job File is created automatically.
+3. Admin receives the request in the live queue.
+4. Admin accepts the request, adds internal information, and assigns a Service Team.
+5. Only after assignment does that file appear on the selected Service Team Dashboard.
+6. Service Team can call the client, navigate to the property, read Admin notes, and update field status.
+7. Admin sees field updates in the same shared file.
+8. The client sees only client-approved status and updates.
+9. New clients without a Client Number receive a private live status link.
 
-## Deploy to Vercel
-1. Push this folder to GitHub.
-2. In Vercel, use Framework Preset: Next.js.
-3. Leave Build Command, Output Directory and Install Command overrides OFF.
-4. Root Directory should be the folder containing this package.json.
-5. Create a Supabase project and run `supabase/schema.sql` in SQL Editor.
-6. Add these Vercel Environment Variables:
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `SUPABASE_SERVICE_ROLE_KEY`
-7. Redeploy.
+## Dashboards
+- `/admin` — DKI Restotech Admin Command Center
+- `/client` — Property Management Client Dashboard
+- `/service` — Service Team Dashboard (assigned files only)
 
-## Important production boundary
-The internal RESTOTECH admin, sales and service workflows can be tested after Supabase is connected. Before distributing client-portal logins or exposing internal dashboards to real customers/staff, add Supabase Auth, role-based access and Row Level Security so each user only sees authorized data.
+`/sales` now redirects to `/admin`; CRM/client account management is a tab inside Admin.
 
-## Routes
-- `/` public site + emergency request
-- `/admin` owner/admin operations
-- `/service` service team manager
-- `/sales` sales CRM
-- `/client` client access landing area
+## Live communication
+Install and configure:
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `SUPABASE_SERVICE_ROLE_KEY`
 
+The dashboards subscribe to Supabase Realtime when the public URL + anon key are available. A polling fallback is included.
 
-## Emergency Access Flow (V3)
-- Main Emergency button asks: Existing Client Number or New Client.
-- Existing clients enter their DKI Restotech Client Number and open their identified client account.
-- New clients submit only property address + phone number (unit/note optional).
-- Every new emergency receives a private `/status/<token>` live-status link.
-- Admin and Service dashboards update the emergency status and can post client-visible updates.
-- The client status page refreshes automatically every 5 seconds.
+## Supabase
+Fresh database: run `supabase/schema.sql`.
 
-## Supabase update
-If this project already has the older RESTOTECH tables, run `supabase/migrate_v3.sql`.
-For a fresh Supabase project, run `supabase/schema.sql`.
+Existing V3/V5 database: run `supabase/migrate_v6.sql`.
 
+## Important production security step
+This operational starter intentionally uses Client Numbers and Team Access Codes for workflow testing. Before broadly exposing real sensitive customer data, add Supabase Auth and strict Row Level Security for Admin, Client, and Service Team roles.
 
-## DKI Restotech brand alignment
-Public presentation now uses DKI Restotech naming and business context: 24/7 emergency restoration, typical 60-minute on-site response, family-owned since 1980, licensed/insured, IICRC-certified, and full-service mitigation through reconstruction. Replace the text lockup with the official supplied logo asset when available.
-
-
-## V5 branding correction
-Uses the official DKI Restotech white/red logo asset from dkirestotech.com throughout public and portal headers. Old RESTOTECH text-only navigation branding has been removed.
+## Deployment
+1. Upload/push this project to GitHub.
+2. In Vercel choose Framework Preset: Next.js.
+3. Leave Output Directory override OFF.
+4. Add all three environment variables above.
+5. Deploy.

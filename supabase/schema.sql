@@ -1,0 +1,8 @@
+create extension if not exists pgcrypto;
+create table if not exists public.accounts(id uuid primary key default gen_random_uuid(),name text not null,phone text,email text,status text default 'prospect',account_owner text,created_at timestamptz not null default now());
+create table if not exists public.properties(id uuid primary key default gen_random_uuid(),account_id uuid references public.accounts(id) on delete cascade,name text,address text not null,phone text,created_at timestamptz not null default now());
+create table if not exists public.emergencies(id uuid primary key default gen_random_uuid(),account_id uuid references public.accounts(id) on delete set null,property_id uuid references public.properties(id) on delete set null,account_name text,address text not null,phone text not null,unit text,note text,source text not null default 'public',status text not null default 'NEW REQUEST',accepted_by text,damage_amount numeric,damage_description text,created_at timestamptz not null default now(),updated_at timestamptz not null default now());
+create table if not exists public.job_updates(id uuid primary key default gen_random_uuid(),emergency_id uuid references public.emergencies(id) on delete cascade,message text not null,visible_to_client boolean not null default true,created_by text,created_at timestamptz not null default now());
+create index if not exists idx_emergencies_created_at on public.emergencies(created_at desc);
+create index if not exists idx_emergencies_status on public.emergencies(status);
+create index if not exists idx_properties_account on public.properties(account_id);

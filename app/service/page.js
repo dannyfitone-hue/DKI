@@ -1,0 +1,2 @@
+import JobBoard from '../../components/JobBoard';
+export default function Service(){return <main className="shell"><nav className="nav"><div className="brand">RESTO<span>TECH</span> SERVICE</div><div className="navlinks"><a href="/">Public Site</a><a href="/admin">Admin</a></div></nav><div className="eyebrow">SERVICE TEAM MANAGER</div><h2 style={{marginTop:6}}>Dispatch & Job Status</h2><div className="notice">Change a call status here and the same status becomes visible throughout the platform.</div><section className="card topspace"><JobBoard editable/></section></main>}

@@ -51,3 +51,7 @@ For a fresh Supabase project, run `supabase/schema.sql`.
 
 ## DKI Restotech brand alignment
 Public presentation now uses DKI Restotech naming and business context: 24/7 emergency restoration, typical 60-minute on-site response, family-owned since 1980, licensed/insured, IICRC-certified, and full-service mitigation through reconstruction. Replace the text lockup with the official supplied logo asset when available.
+
+
+## V5 branding correction
+Uses the official DKI Restotech white/red logo asset from dkirestotech.com throughout public and portal headers. Old RESTOTECH text-only navigation branding has been removed.

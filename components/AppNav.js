@@ -1,8 +1,11 @@
-export default function AppNav({area='COMMAND'}) {
+export default function AppNav({area='PORTAL'}) {
   return <nav className="nav">
-    <a href="/" className="brand">RESTO<span>TECH</span> <em>{area}</em></a>
+    <a href="/" className="navBrandWrap">
+      <img src="/dki-restotech-logo.png" alt="DKI Restotech" className="navLogo" />
+      <span className="navArea">{area}</span>
+    </a>
     <div className="navlinks">
-      <a href="/admin">Admin</a><a href="/sales">Sales CRM</a><a href="/service">Service Team</a><a href="/client">Client Portal</a>
+      <a href="/admin">Operations</a><a href="/sales">Property Management CRM</a><a href="/service">Response Center</a><a href="/client">Client Portal</a>
     </div>
   </nav>;
 }

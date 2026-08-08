@@ -18,14 +18,14 @@ export default function StatusPage({params}){
   useEffect(()=>{load();const t=setInterval(load,5000);return()=>clearInterval(t)},[]);
   const currentIndex=useMemo(()=>job?Math.max(0,STATUSES.indexOf(job.status)):0,[job]);
 
-  if(error)return <main className="statusShell"><div className="statusCard"><div className="dkiBrand"><span className="dki">DKI</span><span className="dot">·</span><span className="resto">RESTOTECH</span><small>RESTORATION</small></div><h2>Status Link Unavailable</h2><p>{error}</p></div></main>;
-  if(!job)return <main className="statusShell"><div className="statusCard"><div className="dkiBrand"><span className="dki">DKI</span><span className="dot">·</span><span className="resto">RESTOTECH</span><small>RESTORATION</small></div><p>Loading live service status…</p></div></main>;
+  if(error)return <main className="statusShell"><div className="statusCard"><div className="officialBrand"><img src="/dki-restotech-logo.png" alt="DKI Restotech"/><small>RESTORATION</small></div><h2>Status Link Unavailable</h2><p>{error}</p></div></main>;
+  if(!job)return <main className="statusShell"><div className="statusCard"><div className="officialBrand"><img src="/dki-restotech-logo.png" alt="DKI Restotech"/><small>RESTORATION</small></div><p>Loading live service status…</p></div></main>;
 
   return <main className="statusShell">
     <div className="statusCard">
       <div className="statusHeader">
         <div>
-          <div className="dkiBrand"><span className="dki">DKI</span><span className="dot">·</span><span className="resto">RESTOTECH</span><small>RESTORATION</small></div>
+          <div className="officialBrand"><img src="/dki-restotech-logo.png" alt="DKI Restotech"/><small>RESTORATION</small></div>
           <div className="eyebrow">LIVE SERVICE STATUS</div>
         </div>
         <span className="livePill"><i></i> LIVE</span>

@@ -105,7 +105,7 @@ export default function EmergencyRequest({open,onClose,prefill={},source='public
         {source==='client_portal' ? (
           <div className="success compactSuccess"><b>{account?.name || form.account_name}</b><br/>Your client account is already identified.</div>
         ) : (
-          <div className="notice"><b>New client emergency.</b> Only phone number and property address are required to notify RESTOTECH.</div>
+          <div className="notice"><b>New client emergency.</b> Only phone number and property address are required to notify DKI Restotech.</div>
         )}
         <div className="field">
           <label>Property Address *</label>
@@ -134,7 +134,7 @@ export default function EmergencyRequest({open,onClose,prefill={},source='public
       {state==='sent' && created && <div className="success requestSuccess">
         <div className="successMark">✓</div>
         <h3>DKI Restotech has received your request.</h3>
-        <p>Your live service-status page is ready. Keep this link so you can follow RESTOTECH updates without calling for status.</p>
+        <p>Your live service-status page is ready. Keep this link so you can follow DKI Restotech updates without calling for status.</p>
         <a className="primaryBtn bigAction" href={'/status/'+created.public_token}>OPEN LIVE SERVICE STATUS →</a>
         <div className="statusLinkBox">
           <label>Your private status link</label>

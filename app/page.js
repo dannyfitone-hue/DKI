@@ -7,7 +7,7 @@ export default function Home(){
  return <main>
    <header className="publicHeader">
      <div className="publicNav">
-       <div className="dkiBrand"><span className="dki">DKI</span><span className="dot">·</span><span className="resto">RESTOTECH</span><small>PROPERTY MANAGEMENT RESPONSE</small></div>
+       <div className="officialBrand officialBrandHeader"><img src="/dki-restotech-logo.png" alt="DKI Restotech"/><small>PROPERTY MANAGEMENT RESPONSE PORTAL</small></div>
        <div className="headerActions">
          <a className="phoneLink" href="tel:9497968533">24/7 Emergency&nbsp; 949-796-8533</a>
          <a className="portalLink" href="/client">Client Portal</a>
@@ -59,7 +59,7 @@ export default function Home(){
    </section>
 
    <footer className="publicFooter">
-     <div className="dkiBrand"><span className="dki">DKI</span><span className="dot">·</span><span className="resto">RESTOTECH</span><small>RESTORATION</small></div>
+     <div className="officialBrand"><img src="/dki-restotech-logo.png" alt="DKI Restotech"/><small>RESTORATION</small></div>
      <p>Family-owned restoration and reconstruction serving Southern California since 1980.</p>
      <div><a href="tel:9497968533">949-796-8533</a> <span>•</span> <a href="https://dkirestotech.com">dkirestotech.com</a></div>
    </footer>

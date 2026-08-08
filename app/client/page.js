@@ -31,7 +31,7 @@ export default function Client(){
    <section className="clientAccess card">
      <div className="eyebrow">PROPERTY MANAGEMENT CLIENT ACCESS</div>
      <h1 className="accessTitle">Your DKI Restotech account.</h1>
-     <p>Enter the Client Number assigned by RESTOTECH to access your property and request emergency service.</p>
+     <p>Enter the Client Number assigned by DKI Restotech to access your property and request emergency service.</p>
      <form className="form accessForm" onSubmit={submitLookup}>
        <div className="field"><label>DKI Restotech Client Number</label><input required value={clientNumber} onChange={e=>setClientNumber(e.target.value.toUpperCase())} placeholder="RT-XXXXXXXX"/></div>
        <button className="primaryBtn bigAction">{loading?'OPENING ACCOUNT…':'OPEN CLIENT ACCOUNT →'}</button>
